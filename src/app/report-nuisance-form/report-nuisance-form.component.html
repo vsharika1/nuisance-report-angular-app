@@ -1,0 +1,120 @@
+<div
+  class="modal fade"
+  id="nuisanceReportModal"
+  tabindex="-1"
+  aria-labelledby="nuisanceReportModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="nuisanceReportModalLabel">
+          Create Nuisance Report
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="nuisanceReportForm" class="form-floating">
+          <!-- Baddie's Name -->
+          <div class="mb-3 form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="baddiesName"
+              formControlName="baddiesName"
+              placeholder="Baddie's Name"
+            />
+            <label for="baddiesName">Baddie's Name</label>
+          </div>
+
+          <!-- Location -->
+          <div class="mb-3 form-floating">
+            <input
+              class="form-control"
+              id="location"
+              formControlName="location"
+              list="locationOptions"
+              placeholder="Enter or select a location"
+            />
+            <datalist id="locationOptions">
+              <option
+                *ngFor="let location of locations"
+                [value]="location"
+              ></option>
+            </datalist>
+            <label for="location">Location</label>
+          </div>
+
+          <!-- Reported By -->
+          <div class="mb-3 form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="reportedBy"
+              formControlName="reportedBy"
+              placeholder="Reported By"
+            />
+            <label for="reportedBy">Reported By</label>
+          </div>
+
+          <!-- Date and Time -->
+          <div class="mb-3 form-floating">
+            <input
+              type="datetime-local"
+              class="form-control"
+              id="dateTime"
+              formControlName="dateTime"
+              placeholder="Date and Time"
+            />
+            <label for="dateTime">Date and Time</label>
+          </div>
+
+          <!-- Report Status -->
+          <div class="mb-3 form-floating">
+            <select
+              class="form-select"
+              id="reportStatus"
+              formControlName="reportStatus"
+              aria-label="Report Status"
+            >
+              <option value="New">New</option>
+              <option value="Open">Open</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+            <label for="reportStatus">Report Status</label>
+          </div>
+
+          <!-- Extra Info -->
+          <div class="mb-3 form-floating">
+            <textarea
+              class="form-control"
+              id="extraInfo"
+              formControlName="extraInfo"
+              placeholder="Extra Info"
+              style="height: 100px"
+            ></textarea>
+            <label for="extraInfo">Extra Info</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!nuisanceReportForm.valid"
+          (click)="addReport()"
+        >
+          Submit Report
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

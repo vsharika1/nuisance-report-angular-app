@@ -1,0 +1,22 @@
+.table-responsive {
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 8px; 
+  max-height: 450px; 
+  overflow-y: auto;
+}
+
+.table-responsive thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table {
+  border-collapse: separate; 
+  border-spacing: 0; 
+}
+
+.table td {
+  vertical-align: middle;
+}

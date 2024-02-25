@@ -1,0 +1,33 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Location</th>
+        <th scope="col">Baddie's Name</th>
+        <th scope="col">Time Reported</th>
+        <th scope="col">Status</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let report of reportData">
+        <td>{{ report.data.location }}</td>
+        <td>{{ report.data.baddiesName }}</td>
+        <td>{{ report.data.dateTime | date:'full'}}</td>
+        <td>{{ report.data.reportStatus }}</td>
+        <td>
+          <button class="btn btn-info" (click)="showMoreInfo(report)">
+            More Info
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteReport(report.key)">
+            X
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-report-info [selectedReport]="selectedReport"></app-report-info>

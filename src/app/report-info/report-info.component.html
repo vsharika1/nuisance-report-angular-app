@@ -1,0 +1,41 @@
+<div
+  class="modal fade"
+  id="infoModal"
+  tabindex="-1"
+  aria-labelledby="infoModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="infoModalLabel">More Info</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Baddie's Name:</strong> {{ selectedReport?.data?.baddiesName }}</p>
+        <p><strong>Location:</strong> {{ selectedReport?.data?.location }}</p>
+        <p><strong>Reported by:</strong> {{ selectedReport?.data?.reportedBy }}</p>
+        <p>
+          <strong>Time:</strong>
+          {{ selectedReport?.data?.dateTime | date : "medium" }}
+        </p>
+        <p><strong>Status:</strong> {{ selectedReport?.data?.reportStatus }}
+            <button type="button" class="btn btn-warning btn-sm" (click)="changeStatus(selectedReport!)">
+                Change
+            </button>
+        </p>
+        <p><strong>Extra Info:</strong> {{ selectedReport?.data?.extraInfo }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
